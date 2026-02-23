@@ -1,0 +1,28 @@
+name: Demo Workflow
+
+# Controls when the workflow will run
+on:
+  # Triggers when push to main branch
+  push:
+    branches: [ "feature/gha-demo" ]
+  
+
+  # Manually trigger
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v4
+
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo $((2+3))
+          echo "This is super simple job for me to execute"
+          sleep 20
