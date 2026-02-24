@@ -25,11 +25,11 @@ jobs:
 
         
         steps:
-        
-        - name: Setup Terraform
-          uses: hashicorp/setup-terraform@v3
+
+        - name: Set up Terraform
+          uses: hashicorp/setup-terraform@v2
           with:
-          terraform_version: 1.6.6
+            terraform_version: 1.5.0
 
         - name: Clone repo
           uses: actions/checkout@v3
