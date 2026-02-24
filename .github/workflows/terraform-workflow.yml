@@ -44,6 +44,10 @@ jobs:
         - name: Deploy Terraform code
           working-directory: root-project-x/
           run: |
-            terraform init 
-            terraform plan 
-            terraform apply   
+            terraform init -backend-config="bucket=project-x-state"
+
+            # terraform fmt -check
+            terraform plan -input=false -var-file=${{ vars.dev }}.tfvars
+
+            terraform apply -auto-approve -input=false \
+              -var-file=${{ vars.dev }}.tfvars
