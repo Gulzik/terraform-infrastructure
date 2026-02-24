@@ -22,7 +22,7 @@ jobs:
         environment: dev
         # where should this job run? Azure VM
         runs-on: ubuntu-24.04
-        
+
         steps:
 
         - name: Clone repo
@@ -32,7 +32,7 @@ jobs:
           uses: aws-actions/configure-aws-credentials@v4
           with:
             aws-region: us-east-1
-            role-to-assume: ${{ vars.IAM_ROLE }}
+            role-to-assume: arn:aws:iam::620676131314:role/Terraform-github-runner-iam-role
             role-session-name: gha-terraform-session   
 
         - name: Deploy Terraform code
